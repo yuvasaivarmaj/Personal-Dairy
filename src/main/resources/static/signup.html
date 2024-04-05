@@ -1,0 +1,109 @@
+<html>
+<title>Signup</title>
+<style>
+    body {
+background-image: url('https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg');
+background-size: cover; /* This property ensures that the background image covers the entire background */
+background-position: center; /* This property centers the background image */
+/* Add any other background-related properties as needed */
+}
+
+
+   .header {
+        text-align: center;
+   }
+    .submitbutton{
+        background-color: rgb(234, 43, 75);
+        color:white;
+        border: none;
+        height: 36px;
+        width:110px;
+        padding:0.8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 21px;
+        margin-top: 30px;
+        margin-left: 190px;
+
+
+
+        transition: opacity 0.15s,color 0.17s;
+
+    }
+    .submitbutton:hover {
+        background-color: brown;
+        opacity: 0.8;
+
+    }
+    .submitbutton:active{
+        background-color: red;
+        opacity:0.7;
+    }
+    .signup{
+        max-width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        padding: 20px;
+
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    .form-group{
+        margin-top: 20px;
+
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    button {
+        width: 100%; /* Adjusted width to fill the container */
+        margin-bottom: 10px; /* Added margin-bottom for better spacing between fields */
+        padding: 10px; /* Adjusted padding for better visibility */
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; /* Added box-sizing for consistent sizing */
+    }
+
+</style>
+<body>
+<h1 class ="header">
+    SIGN UP PAGE
+</h1>
+<div class= "signup">
+    <form>
+        <div class ="form-group">
+
+            <label for = "First Name">
+                First Name
+            </label>
+            <input type ="text" placeholder="First name" required>
+        </div>
+
+        <div class ="form-group">
+            <label for = "Last Name">
+                Last Name
+            </label>
+            <input type ="text" placeholder="Last Name" required>
+        </div>
+        <div class ="form-group">
+            <label for = "Email">
+                Email
+            </label>
+            <input type ="email" placeholder="Email" class ="form-group-ti" required>
+        </div>
+        <div class ="form-group">
+            <label for = "password">Password</label>
+
+
+            <input type ="password" placeholder="password" required>
+        </div>
+
+        <a href="mainpage.html" ><button class="submitbutton" type="submit">Sign up</button></a>
+
+    </form>
+</div>
+
+</body>
+</html>

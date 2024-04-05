@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARBook</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 90%;
+
+            background-image: url('https://static.vecteezy.com/system/resources/previews/012/209/148/non_2x/paper-note-frame-on-memphis-brown-background-vector.jpg');
+            background-size: cover; /* This property ensures that the background image covers the entire background */
+            background-position: center;
+        }
+        .container {
+            display: table;
+            margin-top: 40px;
+            width: 96%;
+            height: 84%;
+            padding: 20px;
+            padding-bottom: 62px; /* Add space around the table */
+        }
+        .row {
+            display: table-row;
+        }
+        .left-menu {
+            display: table-cell;
+            width: 200px; /* Adjust width of the left menu */
+            background-color: #f0f0f0;
+        }
+        .content {
+            display: table-cell;
+            padding-left: 20px; /* Add space between left menu and content */
+        }
+        /* Example styles for left menu */
+        .left-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .left-menu li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        /* Example styles for content */
+        .content h2 {
+            margin-top: 0;
+        }
+        .ti{
+            padding-left: 40px;
+           padding-top: 9px;
+        }
+        .dashboard-link{
+            text-decoration: none; /* Remove underline */
+            color: inherit;
+        }
+        .Note-link{
+            text-decoration: none; /* Remove underline */
+            color: inherit;
+        }
+        .Noterec-link{
+            text-decoration: none; /* Remove underline */
+            color: inherit;
+        }
+        .index-link{
+            text-decoration: none; /* Remove underline */
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+<h1 class="ti">SCARBook</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="left-menu">
+            <ul>
+                <li><a href="mainpage.html" class="dashboard-link">Dashboard</a></li>
+                <li><a href="datainput" class="Note-link">Add a New Note</a></li>
+                <li><a href="data" class="Noterec-link">MyNotes</a></li>
+                <li><a href="index.html" class="index-link">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Welcome to your Personal Dairy</h2>
+            <p>Try adding your daily updates Here</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

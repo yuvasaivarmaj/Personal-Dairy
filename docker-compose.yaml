@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345678"
+      MYSQL_DATABASE: "dairy"  # Specify the name of the database to be created
+    command: ["--default-authentication-plugin=mysql_native_password", "--init-file=/docker-entrypoint-initdb.d/init.sql"]
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # Mount the SQL initialization script
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 5
+      timeout: 10s
+    ports:
+      - "3306:3306"
+
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-boot-app
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
