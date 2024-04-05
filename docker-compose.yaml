@@ -1,24 +1,25 @@
 version: '3.8'
 
 services:
-  mysql:
-    image: mysql:latest
-    container_name: mysql-db
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "12345678"
-      MYSQL_DATABASE: "dairy"  # Specify the name of the database to be created
-    command: ["--default-authentication-plugin=mysql_native_password", "--init-file=/docker-entrypoint-initdb.d/init.sql"]
+      POSTGRES_PASSWORD: "12345678"
+      POSTGRES_DB: "dairy"
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      # Mount the SQL initialization script
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      interval: 10s
-      retries: 5
-      timeout: 10s
     ports:
-      - "3306:3306"
+      - "5432:5432"
+    networks:
+      - my-network
+    healthcheck:
+      test: [ "CMD-SHELL", "timeout 5s pg_isready -U postgres -h localhost -p 5432" ]
+      interval: 10s
+      retries: 10
+      timeout: 60s  # Increased timeout to 60 seconds # Increased start_period to 60 seconds
+
 
   spring-app:
     build:
@@ -29,7 +30,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      mysql:
+      postgres:
         condition: service_healthy
     networks:
       - my-network
